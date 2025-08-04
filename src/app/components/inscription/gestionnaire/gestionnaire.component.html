@@ -8,12 +8,13 @@
       <img src="logoP.png" alt="">
       <h1>Gestionnaire</h1>
 
-      <div class="file-upload">
-        <p class="p">Glissez déposez ou <strong>Parcourez votre bibliothèque</strong> </p>
-        <input type="file" (change)="fichierSelectionner($event)" accept=".pdf,.doc,.docx"/>
-      </div>
-      <form [formGroup]="conditionUtilisation" (submit)="valider()" >
-        <input type="radio" formControlName="condition" id="condition">
+      <p class="fichierName">{{fichierName}}</p>
+      <form [formGroup]="conditionUtilisation" (ngSubmit)="valider()" enctype="multipart/form-data" >
+        <div class="file-upload">
+          <p class="p">Glissez déposez ou <strong>Parcourez votre bibliothèque</strong> </p>
+          <input type="file" (change)="fichierSelectionner($event)" accept=".pdf,.doc,.docx"/>
+        </div>
+        <input type="checkbox" formControlName="condition" id="condition">
         <label for="condition">Accepter les <a routerLink="/choix" routerLinkActive="router-link-active" >conditions générales d’utilisation</a>.</label><br>
         <input type="submit" [disabled]="!conditionUtilisation.valid" value="S'inscrire">
       </form>

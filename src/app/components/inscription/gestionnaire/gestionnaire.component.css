@@ -79,7 +79,7 @@
   background-color: #2a3f8c;
   transition: background-color 0.3s ease;
 }
-.row1 form input[type="radio"] {
+.row1 form input[type="checkbox"] {
   width: 20px;
   height: 20px;
   /* font-size: larger; */

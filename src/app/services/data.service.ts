@@ -69,4 +69,17 @@ export class DataService {
     return this.http.delete(`${url}/${id}`,{headers: this.headers});
   }
 
+  // Pour l'envoi de fichiers
+  uploadFile(url: string, file: File,fileName:any,type:string): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+    formData.append('fileName', fileName);
+    formData.append('type',type);
+    return this.http.post<any>(url, formData, {
+      headers: {
+        'enctype': 'multipart/form-data',
+      }
+    });
+  }
+
 }

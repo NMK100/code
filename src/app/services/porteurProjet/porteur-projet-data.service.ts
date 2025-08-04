@@ -17,4 +17,11 @@ export class PorteurProjetDataService {
     return this.data.postData(Env.CREATE_PORTER_PROJET,data);
   }
 
+
+
+  //Pour l'upload d'un fichier:
+  uploadCDC(file: File,nomFichier:string): Observable<any> {
+    return this.data.uploadFile(Env.LOGIN_URL, file,nomFichier,"CDC");
+  }
+
 }

@@ -59,7 +59,8 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "collabdev:build:production"
+              "buildTarget": "collabdev:build:production",
+              "port": 4200
             },
             "development": {
               "buildTarget": "collabdev:build:development"
