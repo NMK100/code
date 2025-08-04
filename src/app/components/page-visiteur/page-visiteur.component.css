@@ -9,7 +9,6 @@
     flex-direction: column;
     height: 100%;
     padding-left:50px;
-
 }
 .image-conteneur{
     height: 60%;
@@ -34,15 +33,11 @@
 }
 .colonneDroite{
     display: flex;
-    flex-direction: column;
-    height: 100%;
-    align-items: center;
-    padding-right: 50px;
-   
+    flex-direction: column;    height: 100%;
 }
 .recherche{
     display: flex;
-    width: 90%;
+    width: 80%;
     height: 55px;
     background-color: white;
     border-radius: 10px;
@@ -51,11 +46,12 @@
      padding-left: 10px;
     padding-right: 15px;
     margin-top: 30px; 
-    margin-bottom: 30px; 
+    margin-bottom: 20px; 
+     box-shadow: 0 0 15px  rgba(0, 0, 0, 0.2);
     
 }
 .conteneurinput{
-    width: 300px;
+    width: 270px;
     height: 30px;
     border: solid rgb(24, 23, 23) 1px;
     border-radius: 10px;
@@ -84,7 +80,7 @@ input:focus{
 }
 
 .bouton1{
-     width: 140px;
+     width: 130px;
     height: 30px;
     background-color: #334DAA;
     color: white;
@@ -102,4 +98,26 @@ input:focus{
     border-radius: 10px;   
     font-family:'Inter',sans-serif;
     font-size: 13px;
+}
+.conteneurideeprojet{
+    display: flex;
+    justify-content: space-between;
+    width: 84%;
+    height: 200px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px  rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+.ideeprojet{
+    width: 290px;
+    background-color: antiquewhite;
+    height: 200px;
+    border-radius: 10px;
+}
+.commentaireideeprojet{
+    width: 230px;
+    background-color: rgb(139, 98, 44);
+    height: 200px;
+    border-radius: 10px;
 }
