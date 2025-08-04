@@ -7,6 +7,7 @@ import { GestionnaireComponent } from './components/inscription/gestionnaire/ges
 import { PorteurProjetComponent } from './components/inscription/porteur-projet/porteur-projet.component';
 import { InscriptionIndexComponent } from './components/inscription/inscription-index/inscription-index.component';
 import { PageVisiteurComponent } from './components/page-visiteur/page-visiteur.component';
+import { HeaderComponent } from './components/UI/header/header.component';
 export const routes: Routes = [
 
   {
@@ -21,7 +22,8 @@ export const routes: Routes = [
     {path:'porteur_de_projet', component:PorteurProjetComponent},
     {path:'**', redirectTo: ''},
   ]},
-    {path:'page-visiteur',component:PageVisiteurComponent}
+    {path:'page-visiteur',component:PageVisiteurComponent},
+    {path: 'header', component:HeaderComponent},
 
 
 ];
