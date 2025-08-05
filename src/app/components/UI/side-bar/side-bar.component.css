@@ -1,0 +1,134 @@
+/* Container principal */
+.container {
+    display: flex;
+    height: 100vh;
+    background-color: #f8f9fa;
+}
+
+/* Sidebar principale */
+.sidebar{
+    width: 180px;
+    height: calc(100vh - 100px);
+    position: absolute;
+    top: 62px;
+    background-color: white;
+    gap: 80px;
+}
+
+/* État replié de la sidebar */
+.sidebar.replié {
+    width: 60px;
+}
+
+/* Section haute de la sidebar */
+.haut{
+    margin: 0 0 0 10px;
+}
+
+/* Style des paragraphes (textes) */
+p {
+    color: #334DAA;
+    font-size: 12px;
+    transition: opacity 0.3s ease;
+}
+
+/* Élément de navigation 1 Accueil */
+.nav1{
+    display: flex;
+    align-items: center;
+    gap: 08px;
+}
+
+/* Élément de navigation 2 Les idées de projets */
+.nav2{
+    display: flex;
+    align-items: center;
+    gap: 08px;
+}
+
+/* Élément de navigation 3 Mes projets */
+.nav3{
+    display: flex;
+    align-items: center;
+    gap: 08px;
+}
+
+/* Élément de navigation 4 Mes contributions */
+.nav4{
+    display: flex;
+    align-items: center;
+    gap: 08px;
+}
+
+/* Section basse de la sidebar */
+.enbas{
+    margin: 310px 0 6px 10px;
+}
+
+/* Élément de navigation 5 - Profil */
+.nav5{
+    display: flex;
+    align-items: center;
+    gap: 08px;
+    
+}
+
+/* Élément de navigation 6 - Déconnexion */
+.nav6{
+    display: flex;
+    align-items: center;
+    gap: 08px;
+}
+
+/* Bouton de basculement (flèche) */
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 180px;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Position du bouton quand la sidebar est repliée */
+.sidebar.replié + .btn {
+    left: 60px;
+}
+
+/* Styles pour l'état replié - Section haute */
+.sidebar.replié .haut {
+    margin: 0 0 0 10px; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 08px; 
+}
+
+/* Styles pour l'état replié - Section basse */
+.sidebar.replié .enbas {
+    margin: 310px 0 6px 10px; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    gap: 08px;
+}
+
+
+.sidebar.replié .nav1,
+.sidebar.replié .nav2,
+.sidebar.replié .nav3,
+.sidebar.replié .nav4,
+.sidebar.replié .nav5,
+.sidebar.replié .nav6 {
+    justify-content: flex-start; 
+    gap: 08px; 
+    margin: 6px 0 0 0;
+}
