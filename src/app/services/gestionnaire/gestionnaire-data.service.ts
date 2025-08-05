@@ -6,13 +6,12 @@ import { Env } from '../../env';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GestionnaireDataService {
-
-  constructor(private http:HttpClient,private data:DataService) { }
+  constructor(private http: HttpClient, private data: DataService) {}
   //Pour la creation d'un compte Gestionnaire:
-  addGestionnaire(data:Gestionnaire):Observable<Gestionnaire>{
-    return this.data.postData(Env.CREATE_GESTIONNAIRE,data);
+  addGestionnaire(gestionnaire: Gestionnaire): Observable<Gestionnaire> {
+    return this.data.postData(Env.CREATE_GESTIONNAIRE, gestionnaire);
   }
 }
