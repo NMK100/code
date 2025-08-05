@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class GestionnaireDataService {
+export class GestionnaireDataService { 
 
   constructor(private http:HttpClient,private data:DataService) { }
   //Pour la creation d'un compte Gestionnaire:
