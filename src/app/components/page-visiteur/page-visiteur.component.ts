@@ -17,8 +17,10 @@ export class PageVisiteurComponent {
 
   ngOnInit():void{
     this.pagevisiteurservice.RecupererideeCommentaire().subscribe({
-      next:(data)=>{
-        this.listecommentaireideeprojet=[data];
+      next:(data:CommentaireIdééProjet[])=>{
+        this.listecommentaireideeprojet=data;
+        console.log(this.listecommentaireideeprojet)
+
       },
       error:(erreur)=>{
         console.log(erreur);

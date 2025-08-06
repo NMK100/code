@@ -15,13 +15,13 @@
             <button class="bouton2">projets</button>
         </div>
         <ng-container *ngIf="!messageerreur" >
-        <div class="conteneurideeprojet" *ngFor="let commentaire of listecommentaireideeprojet">
+        <div class="conteneurideeprojet"*ngFor="let commentaire of listecommentaireideeprojet" >
             <div class="ideeprojet"></div>
-            <div class="commentaireideeprojet">
+            <div class="commentaireideeprojet" >
                 <div class="entête"></div>
                 <div class="commentaire">
-                    <div class="acteur">{{commentaire.getidutilisateur}}</div>
-                    <div class="contenu">{{commentaire.getcontenu}}</div>
+                    <div class="acteur">{{commentaire.id}}</div>
+                    <div class="contenu">{{commentaire.contenu}}</div>
                 </div>
                 <div class="commentaire"></div>
                 <div class="finducontenaire"></div>
@@ -29,5 +29,5 @@
         </div>
         </ng-container>
         
-    </div>
+    </div>      
 </div>

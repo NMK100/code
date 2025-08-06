@@ -11,13 +11,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PageVisiteurService {
   //url
-  private url= 'http://localhost:8180/utilisateurs/commentaires-projets';
+  private url= 'http://localhost:8180/utilisateurs/commentaires-idees-projet/projets/';
 
 
   constructor(private http:HttpClient){}
 
-  RecupererideeCommentaire():Observable<CommentaireIdééProjet>{
-    return this.http.get<CommentaireIdééProjet>(this.url);
+  RecupererideeCommentaire():Observable<CommentaireIdééProjet[]>{
+    return this.http.get<CommentaireIdééProjet[]>(this.url);
   }
     
   
