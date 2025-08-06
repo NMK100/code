@@ -6,13 +6,12 @@ import { Env } from '../../env';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ContributeurDataService {
-
-  constructor(private http:HttpClient,private data:DataService) { }
+  constructor(private http: HttpClient, private data: DataService) {}
   //Pour la creation d'un compte Contributeurs:
-  addContributeur(donnee:Contributeur):Observable<Contributeur>{
-    return this.data.postData(Env.CREATE_CONTRIBUTEUR,donnee);
+  addContributeur(contributeur: Contributeur): Observable<Contributeur> {
+    return this.data.postData(Env.CREATE_CONTRIBUTEUR, contributeur);
   }
 }

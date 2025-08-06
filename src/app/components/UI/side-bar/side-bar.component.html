@@ -1,0 +1,47 @@
+
+<aside class="sidebar" [class.replié]="!afficherDetailsSidebar">
+    <!-- Section haute de la sidebar -->
+    <div class="haut">
+        <!-- Navigation Accueil -->
+        <div class="nav1">
+            <i class="ri-home-4-fill" style="color: #334DAA; font-size: 25px;"></i>
+            <p *ngIf="afficherDetailsSidebar">Accueil</p>
+        </div>
+        <!-- Navigation Les idées de projets -->
+        <div class="nav2">
+            <i class="ri-lightbulb-flash-line" style="color: #334DAA; font-size: 25px;"></i>
+            <p *ngIf="afficherDetailsSidebar">Les idées de projets</p>
+        </div>
+        <!-- Navigation Mes projets -->
+        <div class="nav3">
+            <i class="ri-folder-5-line" style="color: #334DAA; font-size: 25px;"></i>
+            <p *ngIf="afficherDetailsSidebar">Mes projets</p>
+        </div>
+        <!-- Navigation Mes contributions -->
+        <div class="nav4">
+            <i class="ri-code-box-line" style="color: #334DAA; font-size: 25px;"></i>
+            <p *ngIf="afficherDetailsSidebar">Mes contributions</p>
+        </div>
+    </div>
+    
+    <!-- Section basse de la sidebar -->
+    <aside class="enbas">
+        <!-- Navigation Profil -->
+        <div class="nav5">
+            <i class="ri-account-circle-line" style="color: #334DAA; font-size: 25px;"></i>
+            <p *ngIf="afficherDetailsSidebar">Profil</p>
+        </div>
+        <!-- Navigation Déconnexion -->
+        <div class="nav6">
+            <i class="ri-login-box-line" style="color: #334DAA; font-size: 25px;"></i>
+            <p *ngIf="afficherDetailsSidebar">Deconnexion</p>
+        </div>
+    </aside>
+</aside>
+
+<!-- Bouton flèche -->
+<div class="btn" (click)="changerEtatSidebar()">
+    <i class="ri-arrow-left-s-line" style="color: #334DAA; font-size: 25px;"></i>
+</div>
+
+ 

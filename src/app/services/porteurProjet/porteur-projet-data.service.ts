@@ -7,14 +7,13 @@ import { Observable } from 'rxjs';
 import { Users } from '../../models/users';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PorteurProjetDataService {
-
-  constructor(private http:HttpClient,private data:DataService) { }
+  constructor(private http: HttpClient, private data: DataService) {}
   //Pour la creation d'un compte PorteurProjet:
-  addPorteur(data:Users):Observable<PorteurProjet>{
-    return this.data.postData(Env.CREATE_PORTER_PROJET,data);
+  addPorteur(user: Users): Observable<PorteurProjet> {
+    return this.data.postData(Env.CREATE_PORTER_PROJET, user);
   }
 
 
