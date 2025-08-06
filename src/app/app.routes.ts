@@ -15,7 +15,7 @@ export const routes: Routes = [
   },
   {path: 'login',component:LoginComponent},
   {path: 'inscription',component:InscriptionComponent,children:[
-    {path:'', component:InscriptionIndexComponent},cd
+    {path:'', component:InscriptionIndexComponent},
     {path:'choix', component:InscriptionChoixComponent},
     {path:'contributeur', component:ContributeurComponent},
     {path:'gestionnaire', component:GestionnaireComponent},

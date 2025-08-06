@@ -120,4 +120,37 @@ input:focus{
     background-color: rgb(139, 98, 44);
     height: 200px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.entête{
+    width: 230px;
+    height: 45px;
+    background-color: aqua;
+}
+.commentaire{
+     width: 230px;
+    height: 55px;
+    background-color:cadetblue;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.finducontenaire{
+     width: 230px;
+    height: 45px;
+    background-color:chartreuse;
+}
+.acteur{
+    display: flex;
+    width: 230px;
+    height: 20px;
+    background-color: bisque;
+}
+.contenu{
+     width: 230px;
+    height: 30px;
+    background-color: rgb(213, 138, 47);
 }
