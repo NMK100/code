@@ -3,9 +3,10 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderpageVisiteurComponent } from './components/headerpage-visiteur/headerpage-visiteur.component';
 import { Router,Event,NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FooterComponent } from "./components/UI/footer/footer.component";
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,HeaderpageVisiteurComponent,CommonModule],
+  imports: [RouterOutlet, HeaderpageVisiteurComponent, CommonModule, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
