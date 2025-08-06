@@ -1,0 +1,122 @@
+<header class="header">
+  
+  <div class="barreRecherche">
+    <!-- Section gauche - Logo -->
+    <div class="logo-section">
+      <div class="logo">
+        <img src="/image 40.png" alt="Collabdev Logo" class="logo-image">
+      </div>
+    </div>
+
+    <!-- Section centrale - Barre de recherche -->
+    <div class="recherche-section">
+      <div class="contenu-bloc">
+        <div class="encapsuleur">
+          <i class="ri-search-2-line" style="font-size: 25px;" ;></i>
+          <input 
+            type="text" 
+            class="dans-recherche" 
+            placeholder="Rechercher par ici..." 
+            [(ngModel)]="searchTerm"
+            (keyup.enter)="onSearch()"
+            (input)="onSearchInput()"
+          >
+          <div class="element-recheche">
+            <button class="element-btn idée" (click)="afficheIdeeProjet()">
+              <i class="ri-lightbulb-flash-line" style="color: white;font-size: 20px;"></i>
+            </button>
+            <button class="element-btn projets" (click)="afficheLesProjets()">
+              <i class="ri-folder-5-line" style="color:black; font-size: 20px;"></i>
+            </button>
+            <button class="button-recherche" (click)="onSearch()">
+          Rechercher
+        </button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="notification-container" (click)="onNotificationClick()">
+        <i class="ri-notification-line" style="color: #334DAA; font-size: 25px;"></i>
+        <span class="notification-puce"></span>
+    </div>
+
+    <div class="separator"></div>
+
+     <!-- Section droite - Notifications et copyright -->
+    
+      
+      
+    <div class="section-droite">
+      <p class="copyright-text">© 2025 Collabdev</p>
+      <a href="#" class="contact-link" (click)="onContactClick()">Nous contacter</a>
+    </div>
+  </div>
+
+
+  <!-- Suggestions de recherche -->
+  <div class="search-suggestions" *ngIf="showSuggestions && suggestions.length > 0">
+    <div class="suggestions">
+      <div class="suggestions-header">
+        <h3>Suggestions</h3>
+        <button class="close-suggestions" (click)="showSuggestions = false">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="suggestions-list">
+        <div 
+          class="suggestion-item" 
+          *ngFor="let suggestion of suggestions" 
+          (click)="onSuggestionClick(suggestion)"
+        >
+          <i class="fas fa-lightbulb suggestion-icon"></i>
+          <span class="suggestion-text">{{ suggestion }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Résultats de recherche -->
+  <div class="search-results" *ngIf="showResults && searchResultsList.length > 0">
+    <div class="results-container">
+      <div class="results-header">
+        <h3>Résultats de recherche</h3>
+        <button class="close-results" (click)="clearSearch()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="results-list">
+        <div 
+          class="result-item" 
+          *ngFor="let result of searchResultsList" 
+          (click)="onResultClick(result)"
+        >
+          <div class="result-icon">
+            <i class="fas" [class]="getResultIcon(result.type)"></i>
+          </div>
+          <div class="result-content">
+            <h4 class="result-title">{{ result.title }}</h4>
+            <p class="result-description">{{ result.description }}</p>
+            <span class="result-type">{{ getResultTypeLabel(result.type) }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Indicateur de chargement -->
+  <div class="loading-overlay" *ngIf="isLoading">
+    <div class="loading-spinner">
+      <i class="fas fa-spinner fa-spin"></i>
+      <span>Recherche en cours...</span>
+    </div>
+  </div>
+
+  <!-- Message d'erreur -->
+  <div class="error-message" *ngIf="errorMessage">
+    <i class="fas fa-exclamation-triangle"></i>
+    <span>{{ errorMessage }}</span>
+  </div>
+
+</header>

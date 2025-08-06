@@ -4,9 +4,12 @@ import { HeaderpageVisiteurComponent } from './components/headerpage-visiteur/he
 import { Router,Event,NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from "./components/UI/footer/footer.component";
+import { HeaderComponent } from "./components/UI/header/header.component";
+import { SideBarComponent } from "./components/UI/side-bar/side-bar.component";
+import { RecherchebarreComponent } from "./components/UI/recherchebarre/recherchebarre.component";
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderpageVisiteurComponent, CommonModule, FooterComponent],
+  imports: [RouterOutlet, ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

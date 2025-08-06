@@ -11,6 +11,7 @@ import { HeaderComponent } from './components/UI/header/header.component';
 import { Component } from '@angular/core';
 import { SideBarComponent } from './components/UI/side-bar/side-bar.component';
 import { FooterComponent } from './components/UI/footer/footer.component';
+import { RecherchebarreComponent } from './components/UI/recherchebarre/recherchebarre.component';
 export const routes: Routes = [
 
   {
@@ -25,10 +26,10 @@ export const routes: Routes = [
     {path:'porteur_de_projet', component:PorteurProjetComponent},
     {path:'**', redirectTo: ''},
   ]},
-    {path:'page-visiteur',component:PageVisiteurComponent},
-    {path: 'header', component:HeaderComponent},
-    {path: 'sidebar', component:SideBarComponent},
-    {path: 'footer', component:FooterComponent},
-
+  {path:'page-visiteur',component:PageVisiteurComponent},
+  {path: 'header', component:HeaderComponent},
+  {path: 'sidebar', component:SideBarComponent},
+  {path: 'footer', component:FooterComponent},
+  {path: 'recherche', component:RecherchebarreComponent},
 
 ];
