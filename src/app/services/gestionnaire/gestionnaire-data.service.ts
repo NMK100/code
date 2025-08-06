@@ -12,7 +12,7 @@ export class GestionnaireDataService {
 
   constructor(private http:HttpClient,private data:DataService) { }
   //Pour la creation d'un compte Gestionnaire:
-  addGestionnaire(data:Gestionnaire):Observable<Gestionnaire>{
+  addGestionnaire(data:any):Observable<Gestionnaire>{
     return this.data.postData(Env.CREATE_GESTIONNAIRE,data);
   }
 

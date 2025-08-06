@@ -10,7 +10,7 @@ export class Gestionnaire {
   }
 
   //user
-  public get getUser(): Users {
+  public get getUser(): Users { 
     return this.user;
   }
 

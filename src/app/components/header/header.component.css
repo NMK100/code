@@ -1,6 +1,6 @@
 
 .header {
-    width: calc(100% -4px);
+    width: calc(100% - 4px);
     background-color: white;
     border-top: 1px solid #e3f2fd;
     border-bottom: 1px solid #e3f2fd;
@@ -124,40 +124,40 @@
         padding: 15px 20px;
         gap: 15px;
     }
-    
+
     .left-section {
         flex-direction: column;
         gap: 15px;
         text-align: center;
     }
-    
+
     .bouton-section {
         order: 2;
     }
-    
+
     .separator {
         display: none;
     }
-    
+
     .right-section {
         order: 3;
         align-items: center;
     }
-    
+
     .slogan {
         font-size: 16px;
         text-align: center;
     }
-    
+
     .buttons {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .button1, .button2 {
         width: 200px;
     }
-    
+
     .logo-image {
         height: 35px;
     }
@@ -167,17 +167,17 @@
     .entete {
         padding: 10px 15px;
     }
-    
+
     .logo-image {
         height: 30px;
     }
-    
+
     .slogan {
         font-size: 14px;
     }
-    
+
     .button1, .button2 {
         width: 180px;
         padding: 8px 16px;
     }
-} 
+}
