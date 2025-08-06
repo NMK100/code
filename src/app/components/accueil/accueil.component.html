@@ -1,0 +1,66 @@
+<div class="contener">
+  <div class="idee_projet">
+    <div class="header">
+      <div class="idee">
+        <p>Idées de projets</p>
+      </div>
+      <div class="list">
+        <!-- filtre d'affichage -->
+        <label for="list">Tire</label>
+        <select name="list" id="list">
+          <option value=""></option>
+        </select>
+      </div>
+    </div>
+    <!-- card -->
+    <div class="body">
+      <div class="card">
+        <div class="head">
+          <div class="titre">Nom projet</div>
+          <div class="date">date</div>
+        </div>
+        <div class="content">
+          <div class="des">description</div>
+          <div class="cdc">cdc</div>
+        </div>
+        <div class="foot">
+          <div class="porteur">nom : a proposé cette idée</div>
+          <div class="soutien" (click)="handelClick()">
+            @if (isSoutienState()) {
+            <i class="ri-hand-heart-line bolo"></i>
+            }@else {
+            <i class="ri-hand-heart-fill bolo"></i>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="projet">
+    <div class="header">
+      <div class="idee">
+        <p>Projets</p>
+      </div>
+      <div class="list">
+        <!-- filtre d'affichage -->
+        <label for="list">Tire</label>
+        <select name="list" id="list">
+          <option value=""></option>
+        </select>
+      </div>
+    </div>
+    <div class="cardProjet">
+      <div class="head">
+        <div class="projetHead">
+          <div class="titre">Titre projet</div>
+          <div class="cercle"></div>
+        </div>
+        <div class="body">description</div>
+        <div class="footidee">
+          <div class="porteur">nom : a proposé cette idée</div>
+          <div class="soutien">nombre <i class="ri-group-fill"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
