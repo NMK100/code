@@ -12,5 +12,7 @@ export class Env {
 
   public static LOGIN_URL: string = Env._env.authUrl + '/login';
 
+  public static UPLOAD_URL: string = Env._env.apiUrl + 'upload';
+
 
 }
