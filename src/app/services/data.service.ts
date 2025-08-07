@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Users } from '../models/users';
+import { Login } from '../models/login/login';
+import { Env } from '../env';
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +69,24 @@ export class DataService {
   //Pour la suppression des données par ID
   deleteDataById(url: string, id: number) {
     return this.http.delete(`${url}/${id}`,{headers: this.headers});
+  }
+
+  // Pour l'envoi de fichiers
+  uploadFile(url: string, file: File,fileName:any,type:string): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+    formData.append('fileName', fileName);
+    formData.append('type',type);
+    return this.http.post<any>(url, formData, {
+      headers: {
+        'enctype': 'multipart/form-data',
+      }
+    });
+  }
+
+  //Pour le login :
+  login(data:Login){
+    return this.http.post(Env.LOGIN_URL,data,{headers:this.headers});
   }
 
 }

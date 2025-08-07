@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/UI/header/header.component';
 import { Router,Event,NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FooterComponent } from "./components/UI/footer/footer.component";
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet,HeaderComponent,CommonModule],

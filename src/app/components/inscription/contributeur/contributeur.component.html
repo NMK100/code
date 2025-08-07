@@ -1,1 +1,35 @@
-<p>contributeur works!</p>
+<div class="contenair">
+  <div class="row1">
+
+    <div class="image">
+      <img src="contributeur.png" alt="">
+    </div>
+    <div class="right">
+      <img src="logoP.png" alt="">
+      <h1>Contributeur</h1>
+      <form [formGroup]="formulaireContributeur" (ngSubmit)="valider()" enctype="multipart/form-data" >
+        <div class="radio">
+          <input type="radio" id="sexe1" formControlName="type" value="DEVELOPPEUR" checked> Développeur
+          <input type="radio" id="sexe" formControlName="type" value="DESIGNER"> Designer
+        </div>
+        <div class="form-group">
+          <input type="text" id="nom" formControlName="specialite" required placeholder="Specialité">
+        </div>
+        <div class="file-upload">
+          <p class="p">Glissez déposez ou <strong>Parcourez votre bibliothèque</strong> </p>
+          <input type="file" (change)="fichierSelectionner($event)" accept=".pdf,.doc,.docx"/>
+        </div>
+        <input type="checkbox" formControlName="condition" id="condition">
+        <label for="condition">Accepter les <a routerLink="/choix" routerLinkActive="router-link-active" >conditions générales d’utilisation</a>.</label><br>
+        <input type="submit" [disabled]="!formulaireContributeur.valid" value="S'inscrire">
+      </form>
+    </div>
+
+  </div>
+
+
+  <div class=" row2">
+        <p>Vous avez deja un compte ? </p>
+        <a routerLink="/login">Connectez-vous.</a>
+  </div>
+</div>
