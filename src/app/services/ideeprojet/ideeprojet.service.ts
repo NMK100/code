@@ -8,7 +8,7 @@ import { Ideeprojet } from '../../models/ideeprojet/ideeprojet';
 })
 export class IdeeprojetService {
 
-  url='http://localhost:8180/utilisateurs/idees-projet'
+  url='http://localhost:8180/utilisateurs/idees-projet/v2'
 
   constructor(private http:HttpClient){}
   Recupererideeprojet():Observable<Ideeprojet[]>{

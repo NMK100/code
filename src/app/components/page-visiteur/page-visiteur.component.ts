@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { CommentaireIdééProjet } from '../../models/CommentaireIdéé_Projet/commentaire-idéé-projet';
-import { PageVisiteurService } from '../../services/commentaireidéeprojet/page-visiteur.service';
 import { CommonModule } from '@angular/common';
+import { Ideeprojet } from '../../models/ideeprojet/ideeprojet';
+import { IdeeprojetService } from '../../services/ideeprojet/ideeprojet.service';
+import { HeaderComponent } from '../UI/header/header.component';
 
 
 @Component({
@@ -11,15 +12,16 @@ import { CommonModule } from '@angular/common';
   styleUrl: './page-visiteur.component.css'
 })
 export class PageVisiteurComponent {
-  listecommentaireideeprojet!:CommentaireIdééProjet[];
+  listeideeprojet!:Ideeprojet[];
   messageerreur!:String;
-  constructor(private pagevisiteurservice:PageVisiteurService){};
+  constructor(private ideeprojetservice:IdeeprojetService){};
 
   ngOnInit():void{
-    this.pagevisiteurservice.RecupererideeCommentaire().subscribe({
-      next:(data:CommentaireIdééProjet[])=>{
-        this.listecommentaireideeprojet=data;
-        console.log(this.listecommentaireideeprojet)
+    this.ideeprojetservice.Recupererideeprojet().subscribe({
+      next:(data)=>{
+        this.listeideeprojet=data;
+        console.log(this.listeideeprojet)
+        
 
       },
       error:(erreur)=>{

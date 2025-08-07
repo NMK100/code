@@ -1,8 +1,10 @@
 .conteneurPrincipal{
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 1fr ;
     height: 100%;
+    width: 100%;
     background-color: #e0dddd;
+    position: fixed;
 }
 .colonneGauche{
     display: flex;
@@ -33,7 +35,10 @@
 }
 .colonneDroite{
     display: flex;
-    flex-direction: column;    height: 100%;
+    flex-direction: column;    
+    height: 100%;
+    overflow-y: auto;
+    /* position: fixed; */
 }
 .recherche{
     display: flex;
@@ -115,6 +120,7 @@ input:focus{
     background-color: antiquewhite;
     height: 200px;
     border-radius: 10px;
+    padding-left: 20px;
 }
 .commentaireideeprojet{
     width: 230px;
