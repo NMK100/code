@@ -29,7 +29,9 @@
           <input type="radio" id="sexe1" formControlName="genre" value="M" checked> Homme
           <input type="radio" id="sexe" formControlName="genre" value="F"> Femme
         </div>
-        <input type="submit" value="Suivant ->" >
+        <div>
+          <input type="submit" value="Suivant" [disabled]="!formContenu.valid" >
+        </div>
       </form>
     </div>
   </div>

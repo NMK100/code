@@ -1,6 +1,5 @@
 
 .header {
-    
     width: 100% ;
     background-color: white;
     border-top: 1px solid #e3f2fd;
@@ -142,6 +141,8 @@
         gap: 15px;
     }
     .buttons {
+    .left-section {
+        flex-direction: column;
         gap: 15px;
     }
 }
@@ -184,6 +185,11 @@
     .logo-image {
         height: 16px;
     }
+
+    .slogan {
+        font-size: 14px;
+    }
+
     .button1, .button2 {
         padding: 4px 8px;
     }
@@ -204,4 +210,4 @@
         width: 1px;
         height: 47px;
     }
-} 
+}

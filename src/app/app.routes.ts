@@ -11,24 +11,30 @@ import { HeaderComponent } from './components/UI/header/header.component';
 import { SideBarComponent } from './components/UI/side-bar/side-bar.component';
 import { FooterComponent } from './components/UI/footer/footer.component';
 import { RecherchebarreComponent } from './components/UI/recherchebarre/recherchebarre.component';
+import { AccueilComponent } from './components/accueil/accueil.component';
 export const routes: Routes = [
-
   {
-    path: '', redirectTo: 'login', pathMatch: 'full'
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
-  {path: 'login',component:LoginComponent},
-  {path: 'inscription',component:InscriptionComponent,children:[
-    {path:'', component:InscriptionIndexComponent},
-    {path:'choix', component:InscriptionChoixComponent},
-    {path:'contributeur', component:ContributeurComponent},
-    {path:'gestionnaire', component:GestionnaireComponent},
-    {path:'porteur_de_projet', component:PorteurProjetComponent},
-    {path:'**', redirectTo: ''},
-  ]},
-  {path:'page-visiteur',component:PageVisiteurComponent},
-  {path: 'header', component:HeaderComponent},
-  {path: 'sidebar', component:SideBarComponent},
-  {path: 'footer', component:FooterComponent},
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'inscription',
+    component: InscriptionComponent,
+    children: [
+      { path: '', component: InscriptionIndexComponent },
+      { path: 'choix', component: InscriptionChoixComponent },
+      { path: 'contributeur', component: ContributeurComponent },
+      { path: 'gestionnaire', component: GestionnaireComponent },
+      { path: 'porteur_de_projet', component: PorteurProjetComponent },
+      { path: '**', redirectTo: '' },
+    ],
+  },
+  { path: 'page-visiteur', component: PageVisiteurComponent },
+  { path: 'header', component: HeaderComponent },
+  { path: 'sidebar', component: SideBarComponent },
+  { path: 'footer', component: FooterComponent },
   {path: 'header-barre', component:RecherchebarreComponent}
-
+  { path: 'accueil', component: AccueilComponent },
 ];

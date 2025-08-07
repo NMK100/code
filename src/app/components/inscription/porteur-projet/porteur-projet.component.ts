@@ -10,7 +10,7 @@ import { Router, RouterLink } from '@angular/router';
 import { DataService } from '../../../services/data.service';
 import { Users } from '../../../models/users';
 import { PorteurProjetDataService } from '../../../services/porteurProjet/porteur-projet-data.service';
-import { PorteurProjet } from '../../../models/porteurProjet/porteur-projet';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-porteur-projet',
@@ -25,7 +25,8 @@ export class PorteurProjetComponent implements OnInit {
     private fb: FormBuilder,
     private route: Router,
     private data: DataService,
-    private dataPorteur: PorteurProjetDataService
+    private dataPorteur: PorteurProjetDataService,
+    private toastr:ToastrService,
   ) {
     this.conditionUtilisation = this.fb.group({
       condition: [false, [Validators.requiredTrue]],
@@ -46,20 +47,38 @@ export class PorteurProjetComponent implements OnInit {
       console.log('Données du porteur de projet :', this.user);
       this.dataPorteur.addPorteur(this.user).subscribe({
         next: (response) => {
-          console.log('Porteur de projet enregistré avec succès', response);
-          // this.route.navigate(['inscription/choix', this.user]);
+          // console.log('Porteur de projet enregistré avec succès', response);
+          this.toastr.success("Porteur de projet enregistré avec succès","erreur",{
+            timeOut: 1000,
+            progressBar: true,
+            progressAnimation: 'increasing',
+            positionClass: 'toast-top-center'
+          })
+          this.route.navigate(['login']);
         },
         error: (error) => {
           console.error(
             "Erreur lors de l'enregistrement du porteur de projet",
             error
           );
+          this.toastr.error("Erreur lors de l'enregistrement du porteur de projet","erreur",{
+            timeOut: 1000,
+            progressBar: true,
+            progressAnimation: 'increasing',
+            positionClass: 'toast-top-center'
+          })
           // this.route.navigate(['inscription']);
         },
       });
       // this.route.navigate(['inscription/choix']);
     } else {
-      console.error("Veuillez accepter les conditions d'utilisation");
+      // console.error("Veuillez accepter les conditions d'utilisation");
+      this.toastr.error("Veuillez accepter les conditions d'utilisation","erreur",{
+        timeOut: 1000,
+        progressBar: true,
+        progressAnimation: 'increasing',
+        positionClass: 'toast-top-center'
+      })
     }
   }
 }
