@@ -1,81 +1,110 @@
-Voici un **pipe Angular** (`enumToLabel`) qui convertit les valeurs de l’énumération `DomaineIdeeProjet` en noms présentables. Il est prêt à être utilisé dans un projet Angular :
+Parfait, voici un exemple complet d’un **service Angular** qui gère la correspondance entre les clés d’énumération (`FINTECH`, `EDTECH`, etc.) et leurs labels lisibles (`Finance`, `Éducation`, etc.), dans **les deux sens**.
 
 ---
 
-### ✅ **Fichier du pipe : `enum-to-label.pipe.ts`**
+## ✅ **Fichier : `domaine-idee-projet.service.ts`**
 
 ```ts
-import { Pipe, PipeTransform } from '@angular/core';
+import { Injectable } from "@angular/core";
 
-@Pipe({
-  name: 'enumToLabel'
+@Injectable({
+  providedIn: "root",
 })
-export class EnumToLabelPipe implements PipeTransform {
-
-  private readonly labelMap: { [key: string]: string } = {
-    FINTECH: 'Finance',
-    EDTECH: 'Éducation',
-    HEALTHTECH: 'Santé',
-    AGRITECH: 'Agriculture',
-    LEGALTECH: 'Droit',
-    GOVTECH: 'Secteur public',
-    GREENTECH: 'Écologie',
-    PROPTECH: 'Immobilier',
-    INSURTECH: 'Assurance',
-    HRTECH: 'Ressources humaines',
-    RETAILTECH: 'Commerce',
-    TRAVELTECH: 'Tourisme',
-    SPORTTECH: 'Sport',
-    ADTECH: 'Publicité',
-    MARTECH: 'Marketing',
-    MUSICTECH: 'Musique',
-    FASHIONTECH: 'Mode',
-    FOODTECH: 'Alimentation',
-    CYBERSECURITY: 'Cybersécurité',
-    AI_ML: 'Intelligence Artificielle',
-    IOT: 'Internet des Objets',
-    BIG_DATA: 'Big Data',
-    CLOUD_COMPUTING: 'Cloud Computing',
-    BLOCKCHAIN: 'Blockchain'
+export class DomaineIdeeProjetService {
+  private readonly enumToLabelMap: { [key: string]: string } = {
+    FINTECH: "Finance",
+    EDTECH: "Éducation",
+    HEALTHTECH: "Santé",
+    AGRITECH: "Agriculture",
+    LEGALTECH: "Droit",
+    GOVTECH: "Secteur public",
+    GREENTECH: "Écologie",
+    PROPTECH: "Immobilier",
+    INSURTECH: "Assurance",
+    HRTECH: "Ressources humaines",
+    RETAILTECH: "Commerce",
+    TRAVELTECH: "Tourisme",
+    SPORTTECH: "Sport",
+    ADTECH: "Publicité",
+    MARTECH: "Marketing",
+    MUSICTECH: "Musique",
+    FASHIONTECH: "Mode",
+    FOODTECH: "Alimentation",
+    CYBERSECURITY: "Cybersécurité",
+    AI_ML: "Intelligence Artificielle",
+    IOT: "Internet des Objets",
+    BIG_DATA: "Big Data",
+    CLOUD_COMPUTING: "Cloud Computing",
+    BLOCKCHAIN: "Blockchain",
   };
 
-  transform(value: string): string {
-    return this.labelMap[value] || value;
+  private readonly labelToEnumMap: { [label: string]: string };
+
+  constructor() {
+    // Construction automatique du mapping inverse
+    this.labelToEnumMap = Object.entries(this.enumToLabelMap).reduce((acc, [key, value]) => {
+      acc[value] = key;
+      return acc;
+    }, {} as { [label: string]: string });
+  }
+
+  /** Retourne un label lisible à partir de l’enum */
+  getLabelFromEnum(enumKey: string): string {
+    return this.enumToLabelMap[enumKey] || enumKey;
+  }
+
+  /** Retourne l’enum correspondant à partir d’un label */
+  getEnumFromLabel(label: string): string {
+    return this.labelToEnumMap[label] || label;
+  }
+
+  /** Retourne la liste complète des options (utile pour des <select>) */
+  getAllOptions(): { key: string; label: string }[] {
+    return Object.entries(this.enumToLabelMap).map(([key, label]) => ({ key, label }));
   }
 }
 ```
 
 ---
 
-### ✅ **Utilisation dans un template Angular**
+## ✅ **Utilisation dans un composant Angular**
 
-```html
-<span>{{ domaineProjet | enumToLabel }}</span>
-```
-
-Par exemple, si `domaineProjet = 'FINTECH'`, le résultat affiché sera **"Finance"**.
-
----
-
-### ✅ **Déclaration dans un module Angular**
-
-Ajoute le pipe à ton module (`app.module.ts` ou un module spécifique) :
+### Injection du service :
 
 ```ts
-import { EnumToLabelPipe } from './pipes/enum-to-label.pipe';
+import { Component } from "@angular/core";
+import { DomaineIdeeProjetService } from "./services/domaine-idee-projet.service";
 
-@NgModule({
-  declarations: [
-    // autres composants...
-    EnumToLabelPipe
-  ],
-  exports: [
-    EnumToLabelPipe
-  ]
+@Component({
+  selector: "app-mon-composant",
+  templateUrl: "./mon-composant.component.html",
 })
-export class SharedModule { }
+export class MonComposant {
+  domaineEnum = "FINTECH";
+  domaineLabel = "";
+  domaines = [];
+
+  constructor(private domaineService: DomaineIdeeProjetService) {
+    this.domaineLabel = this.domaineService.getLabelFromEnum(this.domaineEnum); // → 'Finance'
+
+    const enumKey = this.domaineService.getEnumFromLabel("Marketing"); // → 'MARTECH'
+    console.log(enumKey);
+
+    this.domaines = this.domaineService.getAllOptions();
+  }
+}
 ```
 
 ---
 
-Souhaites-tu également un système multilingue (ex: i18n) pour ce pipe ou une version qui fonctionne avec une énumération TypeScript directement plutôt qu’un `string` ?
+## ✅ Exemple dans un `<select>` en HTML
+
+```html
+<select [(ngModel)]="selectedDomaine">
+  <option *ngFor="let domaine of domaines" [value]="domaine.key">{{ domaine.label }}</option>
+</select>
+```
+
+---
+
+Souhaites-tu aussi que je t’ajoute un **pipe** qui utilise ce service, pour que les templates puissent faire `{{ domaine | domaineLabel }}` ?
