@@ -13,6 +13,9 @@
     top: 62px;
     background-color: white;
     gap: 80px;
+    transition: all 0.3s ease;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 /* État replié de la sidebar */
@@ -23,6 +26,7 @@
 /* Section haute de la sidebar */
 .haut{
     margin: 0 0 0 10px;
+    padding: 1rem 0;
 }
 
 /* Style des paragraphes (textes) */
@@ -30,6 +34,16 @@ p {
     color: #334DAA;
     font-size: 12px;
     transition: opacity 0.3s ease;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* État replié - masquer le texte */
+.sidebar.replié p {
+    opacity: 0;
+    width: 0;
 }
 
 /* Élément de navigation 1 Accueil */
@@ -37,6 +51,16 @@ p {
     display: flex;
     align-items: center;
     gap: 08px;
+    padding: 0.75rem 0.5rem;
+    border-radius: 8px;
+    margin: 0.25rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav1:hover {
+    background-color: #f0f4ff;
+    transform: translateX(4px);
 }
 
 /* Élément de navigation 2 Les idées de projets */
@@ -44,6 +68,16 @@ p {
     display: flex;
     align-items: center;
     gap: 08px;
+    padding: 0.75rem 0.5rem;
+    border-radius: 8px;
+    margin: 0.25rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav2:hover {
+    background-color: #f0f4ff;
+    transform: translateX(4px);
 }
 
 /* Élément de navigation 3 Mes projets */
@@ -51,6 +85,16 @@ p {
     display: flex;
     align-items: center;
     gap: 08px;
+    padding: 0.75rem 0.5rem;
+    border-radius: 8px;
+    margin: 0.25rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav3:hover {
+    background-color: #f0f4ff;
+    transform: translateX(4px);
 }
 
 /* Élément de navigation 4 Mes contributions */
@@ -58,11 +102,22 @@ p {
     display: flex;
     align-items: center;
     gap: 08px;
+    padding: 0.75rem 0.5rem;
+    border-radius: 8px;
+    margin: 0.25rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav4:hover {
+    background-color: #f0f4ff;
+    transform: translateX(4px);
 }
 
 /* Section basse de la sidebar */
 .enbas{
     margin: 310px 0 6px 10px;
+    padding: 1rem 0;
 }
 
 /* Élément de navigation 5 - Profil */
@@ -70,7 +125,16 @@ p {
     display: flex;
     align-items: center;
     gap: 08px;
-    
+    padding: 0.75rem 0.5rem;
+    border-radius: 8px;
+    margin: 0.25rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav5:hover {
+    background-color: #f0f4ff;
+    transform: translateX(4px);
 }
 
 /* Élément de navigation 6 - Déconnexion */
@@ -78,6 +142,16 @@ p {
     display: flex;
     align-items: center;
     gap: 08px;
+    padding: 0.75rem 0.5rem;
+    border-radius: 8px;
+    margin: 0.25rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav6:hover {
+    background-color: #f0f4ff;
+    transform: translateX(4px);
 }
 
 /* Bouton de basculement (flèche) */
@@ -96,6 +170,14 @@ p {
     border-radius: 50%;
     cursor: pointer;
     z-index: 10;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #f0f4ff;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Position du bouton quand la sidebar est repliée */
@@ -121,7 +203,6 @@ p {
     gap: 08px;
 }
 
-
 .sidebar.replié .nav1,
 .sidebar.replié .nav2,
 .sidebar.replié .nav3,
@@ -131,4 +212,419 @@ p {
     justify-content: flex-start; 
     gap: 08px; 
     margin: 6px 0 0 0;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* (1400px et plus) */
+@media (min-width: 1400px) {
+    .sidebar {
+        width: 200px;
+    }
+    
+    .sidebar.replié {
+        width: 70px;
+    }
+    
+    .btn {
+        left: 200px;
+    }
+    
+    .sidebar.replié + .btn {
+        left: 70px;
+    }
+    
+    p {
+        font-size: 14px;
+    }
+    
+    .nav1, .nav2, .nav3, .nav4, .nav5, .nav6 {
+        padding: 1rem 0.75rem;
+    }
+}
+
+
+@media (max-width: 1399px) and (min-width: 1200px) {
+    .sidebar {
+        width: 180px;
+    }
+    
+    .sidebar.replié {
+        width: 60px;
+    }
+    
+    .btn {
+        left: 180px;
+    }
+    
+    .sidebar.replié + .btn {
+        left: 60px;
+    }
+}
+
+/* Tablet*/
+@media (max-width: 1199px) and (min-width: 992px) {
+    .sidebar {
+        width: 160px;
+    }
+    
+    .sidebar.replié {
+        width: 55px;
+    }
+    
+    .btn {
+        left: 160px;
+    }
+    
+    .sidebar.replié + .btn {
+        left: 55px;
+    }
+    
+    p {
+        font-size: 11px;
+    }
+    
+    .nav1, .nav2, .nav3, .nav4, .nav5, .nav6 {
+        padding: 0.5rem 0.25rem;
+    }
+}
+
+/*Portrait des tablettes (768px - 991px) */
+@media (max-width: 991px) and (min-width: 768px) {
+    .sidebar {
+        width: 140px;
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+    
+    .sidebar.replié {
+        width: 50px;
+    }
+    
+    .btn {
+        left: 140px;
+        width: 28px;
+        height: 28px;
+    }
+    
+    .sidebar.replié + .btn {
+        left: 50px;
+    }
+    
+    p {
+        font-size: 10px;
+    }
+    
+    .nav1, .nav2, .nav3, .nav4, .nav5, .nav6 {
+        padding: 0.5rem 0.25rem;
+        gap: 6px;
+    }
+    
+    .enbas {
+        margin: 250px 0 6px 10px;
+    }
+}
+
+/* téléphone(576px - 767px) */
+@media (max-width: 767px) and (min-width: 576px) {
+    .sidebar {
+        width: 120px;
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+    
+    .sidebar.replié {
+        width: 45px;
+    }
+    .selector{
+        font-size: none;
+    }
+    
+    .btn {
+        left: 120px;
+        width: 26px;
+        height: 26px;
+    }
+    
+    .sidebar.replié + .btn {
+        left: 45px;
+    }
+    
+    p {
+        font-size: 9px;
+    }
+    
+    .nav1, .nav2, .nav3, .nav4, .nav5, .nav6 {
+        padding: 0.4rem 0.2rem;
+        gap: 4px;
+    }
+    
+    .haut {
+        margin: 0 0 0 8px;
+        padding: 0.5rem 0;
+    }
+    
+    .enbas {
+        margin: 200px 0 6px 8px;
+        padding: 0.5rem 0;
+    }
+    
+    .sidebar.replié .haut {
+        margin: 0 0 0 8px;
+    }
+    
+    .sidebar.replié .enbas {
+        margin: 200px 0 6px 8px;
+    }
+}
+
+/* les 6s (375px - 575px) */
+@media (max-width: 575px) and (min-width: 375px) {
+    .sidebar {
+        width: 100px;
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+    
+    .sidebar.replié {
+        width: 40px;
+    }
+    
+    .btn {
+        left: 100px;
+        width: 24px;
+        height: 24px;
+    }
+    
+    .sidebar.replié + .btn {
+        left: 40px;
+    }
+    
+    p {
+        font-size: 8px;
+    }
+    
+    .nav1, .nav2, .nav3, .nav4, .nav5, .nav6 {
+        padding: 0.3rem 0.15rem;
+        gap: 3px;
+    }
+    
+    .haut {
+        margin: 0 0 0 6px;
+        padding: 0.4rem 0;
+    }
+    
+    .enbas {
+        margin: 180px 0 6px 6px;
+        padding: 0.4rem 0;
+    }
+    
+    .sidebar.replié .haut {
+        margin: 0 0 0 6px;
+    }
+    
+    .sidebar.replié .enbas {
+        margin: 180px 0 6px 6px;
+    }
+}
+
+/* plus petites telephones (320px - 374px) */
+@media (max-width: 374px) and (min-width: 320px) {
+    .sidebar {
+        width: 80px;
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+    
+    .sidebar.replié {
+        width: 35px;
+    }
+    
+    .btn {
+        left: 80px;
+        width: 22px;
+        height: 22px;
+    }
+    
+    .sidebar.replié + .btn {
+        left: 35px;
+    }
+    
+    p {
+        font-size: 7px;
+    }
+    
+    .nav1, .nav2, .nav3, .nav4, .nav5, .nav6 {
+        padding: 0.25rem 0.1rem;
+        gap: 2px;
+    }
+    
+    .haut {
+        margin: 0 0 0 4px;
+        padding: 0.3rem 0;
+    }
+    
+    .enbas {
+        margin: 150px 0 6px 4px;
+        padding: 0.3rem 0;
+    }
+    
+    .sidebar.replié .haut {
+        margin: 0 0 0 4px;
+    }
+    
+    .sidebar.replié .enbas {
+        margin: 150px 0 6px 4px;
+    }
+}
+
+/* Très petits écrans (moins de 320px) */
+@media (max-width: 319px) {
+    .sidebar {
+        width: 70px;
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+    
+    .sidebar.replié {
+        width: 30px;
+    }
+    
+    .btn {
+        left: 70px;
+        width: 20px;
+        height: 20px;
+    }
+    
+    .sidebar.replié + .btn {
+        left: 30px;
+    }
+    
+    p {
+        font-size: 6px;
+    }
+    
+    .nav1, .nav2, .nav3, .nav4, .nav5, .nav6 {
+        padding: 0.2rem 0.05rem;
+        gap: 1px;
+    }
+    
+    .haut {
+        margin: 0 0 0 3px;
+        padding: 0.2rem 0;
+    }
+    
+    .enbas {
+        margin: 120px 0 6px 3px;
+        padding: 0.2rem 0;
+    }
+    
+    .sidebar.replié .haut {
+        margin: 0 0 0 3px;
+    }
+    
+    .sidebar.replié .enbas {
+        margin: 120px 0 6px 3px;
+    }
+}
+
+/* Mode portrait sur mobile le Sidebar sera en bas */
+@media (max-width: 767px) and (orientation: portrait) {
+    .sidebar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        top: auto;
+        width: 100%;
+        height: 60px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 1000;
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .sidebar.replié {
+        width: 100%;
+        height: 50px;
+    }
+    
+    .haut {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+        gap: 1rem;
+        flex: 1;
+        justify-content: center;
+    }
+    
+    .enbas {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+        gap: 1rem;
+        flex: 1;
+        justify-content: center;
+    }
+    
+    .nav1, .nav2, .nav3, .nav4, .nav5, .nav6 {
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+        margin: 0;
+        gap: 2px;
+    }
+    
+    p {
+        font-size: 8px;
+        text-align: center;
+    }
+    
+    .sidebar.replié p {
+        opacity: 1;
+        width: auto;
+    }
+    
+    .btn {
+        display: none; 
+    }
+    
+    /* Ajuster l'espacement pour éviter le chevauchement avec le header */
+    .sidebar {
+        top: calc(100vh - 60px);
+    }
+}
+
+/* Mode paysage sur mobile le Sidebar sera latérale */
+@media (max-width: 767px) and (orientation: landscape) {
+    .sidebar {
+        width: 80px;
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+    
+    .sidebar.replié {
+        width: 35px;
+    }
+    
+    .btn {
+        left: 80px;
+        width: 22px;
+        height: 22px;
+    }
+    
+    .sidebar.replié + .btn {
+        left: 35px;
+    }
+    
+    .enbas {
+        margin: 120px 0 6px 4px;
+    }
+    
+    .sidebar.replié .enbas {
+        margin: 120px 0 6px 4px;
+    }
 }

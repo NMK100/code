@@ -4,7 +4,7 @@ import { HeaderComponent } from "../header/header.component";
 
 @Component({
   selector: 'app-side-bar',
-  imports: [CommonModule, HeaderComponent],
+  imports: [CommonModule],
   templateUrl: './side-bar.component.html',
   styleUrl: './side-bar.component.css'
 })

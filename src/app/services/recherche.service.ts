@@ -25,9 +25,7 @@ export class RechercheService {
 
   constructor(private http: HttpClient) {}
 
-  /**
-   * Effectue une recherche globale dans tous les types de contenu
-   */
+  /*Effectue une recherche globale dans tous les types de contenu*/
   searchAll(term: string): Observable<ResultatRecherche[]> {
     if (!term || term.trim().length < 2) {
       return of([]);
@@ -56,9 +54,7 @@ export class RechercheService {
     );
   }
 
-  /**
-   * Recherche dans les projets
-   */
+  /*Recherche dans les projets*/
   public searchProjets(term: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiBaseUrl}/projets/search?term=${term}`).pipe(
       catchError(error => {
@@ -68,9 +64,7 @@ export class RechercheService {
     );
   }
 
-  /**
-   * Recherche dans les utilisateurs
-   */
+  /*Recherche dans les utilisateurs*/
   public searchUtilisateurs(term: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiBaseUrl}/utilisateurs/search?term=${term}`).pipe(
       catchError(error => {
@@ -80,9 +74,7 @@ export class RechercheService {
     );
   }
 
-  /**
-   * Recherche dans les idées de projet
-   */
+  /* Recherche dans les idées de projet*/
   public searchIdees(term: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiBaseUrl}/idees/search?term=${term}`).pipe(
       catchError(error => {
@@ -91,9 +83,7 @@ export class RechercheService {
       })
     );
   }
-  /**
-   * Recherche avancée avec filtres
-   */
+  /*Recherche avancée avec filtre */
   rechercherAvancee(term: string, filters: {
     types?: string[];
     dateRange?: { start: Date; end: Date };
@@ -124,10 +114,8 @@ export class RechercheService {
     );
   }
 
-  /**
-   * Obtient les suggestions de recherche
-   */
-  getSuggestions(term: string): Observable<string[]> {
+  /*les suggestions de recherche*/
+  suggestionsRecherche(term: string): Observable<string[]> {
     if (!term || term.trim().length < 2) {
       return of([]);
     }
@@ -139,10 +127,9 @@ export class RechercheService {
       })
     );
   }
-  /**
-   * Obtient l'historique des recherches
-   */
-  getSearchHistory(): string[] {
+  
+   /* l'historique des recherches*/
+  histoireRecherche(): string[] {
     try {
       const history = localStorage.getItem('searchHistory');
       return history ? JSON.parse(history) : [];
@@ -151,10 +138,8 @@ export class RechercheService {
     }
   }
 
-  /**
-   * Efface l'historique des recherches
-   */
-  clearSearchHistory(): void {
+  /*Efface l'historique des recherches*/
+  effacerRechercheHistoire(): void {
     localStorage.removeItem('searchHistory');
   }
 } 
