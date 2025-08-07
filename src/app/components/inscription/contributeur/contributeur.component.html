@@ -7,10 +7,10 @@
     <div class="right">
       <img src="logoP.png" alt="">
       <h1>Contributeur</h1>
-      <form [formGroup]="conditionUtilisation" (ngSubmit)="valider()" enctype="multipart/form-data" >
+      <form [formGroup]="formulaireContributeur" (ngSubmit)="valider()" enctype="multipart/form-data" >
         <div class="radio">
-          <input type="radio" id="sexe1" formControlName="genre" value="M" checked> Homme
-          <input type="radio" id="sexe" formControlName="genre" value="F"> Femme
+          <input type="radio" id="sexe1" formControlName="type" value="DEVELOPPEUR" checked> Développeur
+          <input type="radio" id="sexe" formControlName="type" value="DESIGNER"> Designer
         </div>
         <div class="form-group">
           <input type="text" id="nom" formControlName="specialite" required placeholder="Specialité">
@@ -21,7 +21,7 @@
         </div>
         <input type="checkbox" formControlName="condition" id="condition">
         <label for="condition">Accepter les <a routerLink="/choix" routerLinkActive="router-link-active" >conditions générales d’utilisation</a>.</label><br>
-        <input type="submit" [disabled]="!conditionUtilisation.valid" value="S'inscrire">
+        <input type="submit" [disabled]="!formulaireContributeur.valid" value="S'inscrire">
       </form>
     </div>
 

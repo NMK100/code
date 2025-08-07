@@ -4,30 +4,30 @@
   <div class="login-container">
 
     <div class="title">
-      <img src="logoP.png" alt="">
-      <a routerLink="/">visiter le site -></a>
+      <img src="logoP.png" alt=""><br>
+      <a routerLink="/">visiter le site <i class="ri-arrow-right-fill"></i></a>
     </div>
 
     <div class="contenuLog">
 
       <div class="login-form">
-        <form (submit)="onLogin()">
+        <form [formGroup]="loginData" (ngSubmit)="verifier()">
           <div class="btn-container"></div>
           <div class="error-message" *ngIf="errorMessage">
             {{ errorMessage }}
           </div>
           <div appearance="fill">
-            <input type="email" required placeholder="Email" />
+            <input formControlName="email" type="email" required placeholder="Email" />
           </div>
           <div appearance="fill">
-            <input type="password" required placeholder="Mote de passe" /><br>
-            <a class="aGauche" routerLink="/motDePasseOblier" style="float: right;margin-top:10px ;">Mot de passe Oublié ?</a>
+            <input formControlName="password" type="password" required placeholder="Mote de passe" /><br>
+            <a class="aGauche" routerLink="/" style="float: right;margin-top:10px ;">Mot de passe Oublié ?</a>
           </div>
 
           <div class="btn-container"></div>
 
           <div appearance="fill">
-            <input type="submit" class="btn" value="se connecter" />
+            <input type="submit" class="btn" value="se connecter" [disabled]="!loginData.valid" />
           </div>
 
         </form>
@@ -66,3 +66,24 @@
 <div class="footer">
   <p>&copy; 2025 CollabDev. <span> nous contacter</span></p>
 </div>
+
+
+<!-- ===== MODAL DE SÉLECTION DE RÔLE ===== -->
+<div class="modal" *ngIf="afficheRoleModal">
+  <div class="modal-contenu">
+    <h2>Choisir un rôle</h2>
+    <select [(ngModel)]="role" required>
+      <option value="">-- Sélectionner un rôle --</option>
+      <option value="ADMIN">ADMIN</option>
+      <option value="SUPER_ADMIN">SUPER ADMIN</option>
+      <option value="CONTRIBUTEUR">CONTRIBUTEUR</option>
+      <option value="GESTIONNAIRE">GESTIONNAIRE</option>
+      <option value="PORTEUR_PROJET">PORTEUR DE PROJET</option>
+    </select>
+    <div class="modal-actions">
+      <button (click)="confirmerRole()" [disabled]="!role">Confirmer</button>
+      <button (click)="annulerRole()">Annuler</button>
+    </div>
+  </div>
+</div>
+

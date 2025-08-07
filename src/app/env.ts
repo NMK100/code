@@ -2,7 +2,7 @@ export class Env {
   private static _env: any = {
     production: false,
     apiUrl: 'http://localhost:8180/',
-    authUrl: 'http://localhost:8180/auth',
+    authUrl: 'http://localhost:8180',
   };
   // Les urls pour l'inscription des utilisateurs
   public static INSCRIPTION_URL: string = Env._env.apiUrl + 'utilisateurs';
@@ -15,7 +15,7 @@ export class Env {
   public static GETRECOMMADATION: string =
     Env._env.apiUrl + 'recommandations/idees-projet/';
 
-  public static LOGIN_URL: string = Env._env.authUrl + '/login';
+  public static LOGIN_URL: string = Env._env.authUrl + '/authentification';
 
   public static UPLOAD_URL: string = Env._env.apiUrl + 'upload';
 }
