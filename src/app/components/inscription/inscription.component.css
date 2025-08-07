@@ -1,3 +1,7 @@
 .container{
   background-color: #fff;
 }
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

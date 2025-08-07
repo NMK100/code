@@ -1,11 +1,8 @@
 
 .header {
-<<<<<<< HEAD:src/app/components/header/header.component.css
     width: calc(100% - 4px);
-=======
     /*display: flex;*/
     width: 100% ;
->>>>>>> 4b682621876713d93e013ab0a5bb16c8e78d44ba:src/app/components/UI/header/header.component.css
     background-color: white;
     border-top: 1px solid #e3f2fd;
     border-bottom: solid #7F7F7F 1px;

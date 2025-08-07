@@ -65,7 +65,7 @@
   margin: 0 10px  0 10px;
 }
 
-.form input[type="submit"] {
+/* .form input[type="submit"] {
   background-color: #334DAA;
   color: #FFFFFF;
   font-weight: bold;
@@ -74,7 +74,7 @@
   height: 40px;
   border-radius: 12px;
   border: none;
-}
+} */
 
 .form input[type="submit"]:hover {
   background-color: #2a3f8c;
@@ -124,3 +124,23 @@
   border-radius: 5px 0 0 0;
 }
 
+input[type="submit"]:not(:disabled) {
+  background-color: #334DAA;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+input[type="submit"]:not(:disabled):hover {
+  background-color: #2a3f8c;
+}
+
+input[type="submit"]:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  border: 1px solid #aaa;
+  width: 100%;
+  opacity: 0.6;
+}
