@@ -9,7 +9,9 @@ import { Env } from '../../env';
 export class AccueilService {
   constructor(private http: HttpClient, private data: DataService) {}
 
-  getRecommandation() {
-    return this.data.getData(Env.GETRECOMMADATION);
+  readonly url = Env.GETRECOMMADATION;
+
+  getRecommandation(id: number) {
+    return this.data.getData(`${this.url}/${id}`);
   }
 }
