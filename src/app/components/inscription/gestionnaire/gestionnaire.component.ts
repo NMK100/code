@@ -58,7 +58,7 @@ export class GestionnaireComponent implements OnInit {
           timeOut: 1000,
           progressBar: true,
           progressAnimation: 'increasing',
-          positionClass: 'toast-top-center'
+          positionClass: 'toast-top-right'
         })
         return;
       }
@@ -68,7 +68,7 @@ export class GestionnaireComponent implements OnInit {
           timeOut: 1000,
           progressBar: true,
           progressAnimation: 'increasing',
-          positionClass: 'toast-top-center'
+          positionClass: 'toast-top-right'
         })
         return;
       }
@@ -104,7 +104,7 @@ export class GestionnaireComponent implements OnInit {
                 timeOut: 1000,
                 progressBar: true,
                 progressAnimation: 'increasing',
-                positionClass: 'toast-top-center'
+                positionClass: 'toast-top-right'
               })
             }
           });
@@ -116,7 +116,7 @@ export class GestionnaireComponent implements OnInit {
             timeOut: 1000,
             progressBar: true,
             progressAnimation: 'increasing',
-            positionClass: 'toast-top-center'
+            positionClass: 'toast-top-right'
           })
         }
       });
@@ -128,7 +128,7 @@ export class GestionnaireComponent implements OnInit {
           timeOut: 1000,
           progressBar: true,
           progressAnimation: 'increasing',
-          positionClass: 'toast-top-center'
+          positionClass: 'toast-top-right'
         })
     }
   }

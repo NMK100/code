@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Users } from '../models/users';
+import { Login } from '../models/login/login';
+import { Env } from '../env';
 
 @Injectable({
   providedIn: 'root'
@@ -80,6 +82,11 @@ export class DataService {
         'enctype': 'multipart/form-data',
       }
     });
+  }
+
+  //Pour le login :
+  login(data:Login){
+    return this.http.post(Env.LOGIN_URL,data,{headers:this.headers});
   }
 
 }
