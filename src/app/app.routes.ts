@@ -8,7 +8,6 @@ import { PorteurProjetComponent } from './components/inscription/porteur-projet/
 import { InscriptionIndexComponent } from './components/inscription/inscription-index/inscription-index.component';
 import { PageVisiteurComponent } from './components/page-visiteur/page-visiteur.component';
 import { HeaderComponent } from './components/UI/header/header.component';
-import { Component } from '@angular/core';
 import { SideBarComponent } from './components/UI/side-bar/side-bar.component';
 import { FooterComponent } from './components/UI/footer/footer.component';
 export const routes: Routes = [
@@ -29,6 +28,4 @@ export const routes: Routes = [
     {path: 'header', component:HeaderComponent},
     {path: 'sidebar', component:SideBarComponent},
     {path: 'footer', component:FooterComponent},
-
-
 ];
