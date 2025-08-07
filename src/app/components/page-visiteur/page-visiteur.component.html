@@ -27,17 +27,17 @@
         *ngFor="let ideeprojet of listeideeprojet"
       >
         <div class="ideeprojet">
-          <h3>{{ ideeprojet.titre }}</h3>
-          <h4>{{ ideeprojet.domaine }}</h4>
-          <p>{{ ideeprojet.description }}</p>
-          <h4>{{ ideeprojet.datePublication }}</h4>
+          <h3>{{ ideeprojet.getTitre }}</h3>
+          <h4>{{ ideeprojet.getDomain }}</h4>
+          <p>{{ ideeprojet.getDescription }}</p>
+          <h4>{{ ideeprojet.getDatePublicatipon }}</h4>
         </div>
 
         <div
           class="commentaireideeprojet"
-          *ngFor="let commentaire of ideeprojet.commentaireIdeeProjets"
+          *ngFor="let commentaire of ideeprojet.getcommentaireIdeeProjets"
         >
-          <div class="entête">{{ ideeprojet.idUtilisateur }}</div>
+          <div class="entête">{{ ideeprojet.getIdUtilisateur }}</div>
           <div class="commentaire">
             <div class="acteur">{{ commentaire.idutilisateur }}</div>
             <div class="contenu">{{ commentaire.description }}</div>
