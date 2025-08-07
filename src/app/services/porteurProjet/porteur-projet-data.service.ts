@@ -15,4 +15,12 @@ export class PorteurProjetDataService {
   addPorteur(user: Users): Observable<PorteurProjet> {
     return this.data.postData(Env.CREATE_PORTER_PROJET, user);
   }
+
+
+
+  //Pour l'upload d'un fichier:
+  uploadCDC(file: File,nomFichier:string): Observable<any> {
+    return this.data.uploadFile(Env.LOGIN_URL, file,nomFichier,"CDC");
+  }
+
 }

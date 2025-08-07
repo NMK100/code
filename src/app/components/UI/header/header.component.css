@@ -1,7 +1,11 @@
 
 .header {
+<<<<<<< HEAD:src/app/components/header/header.component.css
+    width: calc(100% - 4px);
+=======
     /*display: flex;*/
     width: 100% ;
+>>>>>>> 4b682621876713d93e013ab0a5bb16c8e78d44ba:src/app/components/UI/header/header.component.css
     background-color: white;
     border-top: 1px solid #e3f2fd;
     border-bottom: solid #7F7F7F 1px;
@@ -125,40 +129,40 @@
         padding: 15px 20px;
         gap: 15px;
     }
-    
+
     .left-section {
         flex-direction: column;
         gap: 15px;
         text-align: center;
     }
-    
+
     .bouton-section {
         order: 2;
     }
-    
+
     .separator {
         display: none;
     }
-    
+
     .right-section {
         order: 3;
         align-items: center;
     }
-    
+
     .slogan {
         font-size: 0;
         text-align: center;
     }
-    
+
     .buttons {
         flex-direction: column;
         gap: 20px;
     }
-    
+
     .button1, .button2 {
         width: 200px;
     }
-    
+
     .logo-image {
         height: 35px;
     }
@@ -168,17 +172,17 @@
     .entete {
         padding: 10px 15px;
     }
-    
+
     .logo-image {
         height: 30px;
     }
-    
+
     .slogan {
         font-size: 14px;
     }
-    
+
     .button1, .button2 {
         width: 180px;
         padding: 8px 16px;
     }
-} 
+}
