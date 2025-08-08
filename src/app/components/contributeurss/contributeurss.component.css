@@ -1,64 +1,65 @@
-/* ===============================
-   Variables globales (alignées avec header/footer/sidebar)
-   =============================== */
-:root{
-  --header-h: 60px;            /* Hauteur du header */
-  --footer-h: 38px;            /* Hauteur du footer */
-  --sidebar-w: 180px;          /* Largeur par défaut de la sidebar (latérale) */
-  --bottom-sidebar-h: 60px;    /* Hauteur de la sidebar en bas (mobile portrait) */
 
-  --fond-carte: #fff;
+
+:root{
+  /* Palette Figma */
+  --primaire: #334DAA;         /* Bleu principal */
+  --accent: #F6C342;           /* Jaune accent (barres, soulignements) */
+  --surface: #F5F6FA;          /* Fond de page */
+  --fond-carte: #FFFFFF;       /* Fond des cartes */
+  --bord-carte: #E6E8EE;       /* Bordure des cartes */
+  --texte-primaire: #0F172A;   /* Titre/texte fort */
+  --texte-secondaire: #6B7280; /* Texte faible */
   --rayon-carte: 12px;
-  --bord-carte: #e6e8ee;
-  --texte-atténue: #7f7f7f;
-  --primaire: #334DAA;
-  --surface: #f5f6fa;
-  --etiquette-facile-bg: #fdecc8;
-  --etiquette-difficile-bg: #fde0c8;
+  --etiquette-facile-bg: #FDECC8;
+  --etiquette-difficile-bg: #FDE0C8;
 }
 
-/* Hauteurs du header selon les breakpoints du projet */
-@media (max-width: 900px){ :root{ --header-h: 50px; } }
-@media (max-width: 768px){ :root{ --header-h: 45px; } }
-@media (max-width: 480px){ :root{ --header-h: 40px; } }
 
-/* Largeurs de la sidebar selon les breakpoints du projet */
-@media (min-width: 1400px){ :root{ --sidebar-w: 200px; } }
-@media (max-width: 1399px) and (min-width: 1200px){ :root{ --sidebar-w: 180px; } }
-@media (max-width: 1199px) and (min-width: 992px){ :root{ --sidebar-w: 160px; } }
-@media (max-width: 991px) and (min-width: 768px){ :root{ --sidebar-w: 140px; } }
-@media (max-width: 767px) and (min-width: 576px){ :root{ --sidebar-w: 120px; } }
-@media (max-width: 575px) and (min-width: 375px){ :root{ --sidebar-w: 100px; } }
-@media (max-width: 374px) and (min-width: 320px){ :root{ --sidebar-w: 80px; } }
-@media (max-width: 319px){ :root{ --sidebar-w: 70px; } }
-
-/* ===============================
-   Mise en page principale
-   =============================== */
 .page-principale{
+  /* Variables dimensionnelles avec valeurs par défaut */
+  --header-h: 60px;            /* Hauteur du header */
+  --footer-h: 38px;            /* Hauteur du footer */
+  --sidebar-w: 180px;          /* Largeur sidebar (desktop) */
+  --bottom-sidebar-h: 60px;    /* Hauteur sidebar basse (mobile portrait) */
+
   position: relative;
   display: grid;
   grid-template-columns: 1fr 360px; /* contenu principal + panneau droit */
   gap: 18px;
   padding: 18px 20px;
   background: var(--surface);
-  min-height: calc(100vh - var(--header-h) - var(--footer-h));
-  margin-left: var(--sidebar-w);   /* Laisser l'espace de la sidebar latérale */
-  margin-top: var(--header-h);     /* Laisser l'espace du header */
+  color: var(--texte-primaire);
+  /* Utiliser des fallbacks au cas où les variables ne seraient pas résolues */
+  min-height: calc(100vh - var(--header-h, 60px) - var(--footer-h, 38px));
+  margin-left: var(--sidebar-w, 180px);   /* Laisser l'espace de la sidebar latérale */
+  margin-top: var(--header-h, 60px);      /* Laisser l'espace du header */
 }
 
-/* Quand la sidebar passe en bas (mobile portrait) */
+/* Ajustements responsifs des variables dimensionnelles sur le conteneur */
+@media (min-width: 1400px){ .page-principale{ --sidebar-w: 200px; } }
+@media (max-width: 1399px) and (min-width: 1200px){ .page-principale{ --sidebar-w: 180px; } }
+@media (max-width: 1199px) and (min-width: 992px){ .page-principale{ --sidebar-w: 160px; } }
+@media (max-width: 991px) and (min-width: 768px){ .page-principale{ --sidebar-w: 140px; } }
+@media (max-width: 767px) and (min-width: 576px){ .page-principale{ --sidebar-w: 120px; } }
+@media (max-width: 575px) and (min-width: 375px){ .page-principale{ --sidebar-w: 100px; } }
+@media (max-width: 374px) and (min-width: 320px){ .page-principale{ --sidebar-w: 80px; } }
+@media (max-width: 319px){ .page-principale{ --sidebar-w: 70px; } }
+
+/* Header heights alignées avec le header du projet */
+@media (max-width: 900px){ .page-principale{ --header-h: 50px; } }
+@media (max-width: 768px){ .page-principale{ --header-h: 45px; } }
+@media (max-width: 480px){ .page-principale{ --header-h: 40px; } }
+
+/* Quand la sidebar passe en bas (mobile portrait): retirer la marge gauche et prévoir l'espace bas */
 @media (max-width: 767px) and (orientation: portrait){
   .page-principale{
     margin-left: 0;
-    padding-bottom: var(--bottom-sidebar-h); /* Éviter le chevauchement avec la sidebar basse */
-    min-height: calc(100vh - var(--header-h) - var(--footer-h) - var(--bottom-sidebar-h));
+    padding-bottom: var(--bottom-sidebar-h, 60px);
+    min-height: calc(100vh - var(--header-h, 60px) - var(--footer-h, 38px) - var(--bottom-sidebar-h, 60px));
   }
 }
 
-/* ===============================
-   Cartes génériques
-   =============================== */
+
 .carte{
   background: var(--fond-carte);
   border-radius: var(--rayon-carte);
@@ -78,13 +79,12 @@
   gap: 10px;
   padding: 16px 18px;
   font-weight: 700;
+  color: var(--texte-primaire);
 }
 .entete-carte i{ color: var(--primaire); font-size: 20px; }
 .entete-carte h3{ margin: 0; font-size: 20px; }
 
-/* ===============================
-   Tableau des tâches
-   =============================== */
+
 .taches .tableau{ padding: 0 18px 14px; }
 .tete-tableau, .ligne{
   display: grid;
@@ -93,31 +93,36 @@
   gap: 10px;
 }
 .tete-tableau{
-  color: #70737c;
+  color: var(--texte-secondaire);
   font-size: 12px;
   padding: 0 0 8px;
 }
-.ligne{ border-top: 1px solid #f0f0f0; padding: 10px 0; }
+.ligne{ position: relative; padding: 10px 0; }
+/* Soulignement doré sous chaque ligne */
+.ligne::after{
+  content: '';
+  display: block;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin-top: 8px;
+}
 .nom-tache{ display: flex; align-items: center; gap: 8px; }
 .point{ color: var(--primaire); font-size: 10px; }
 
-.etiquette{ padding: 4px 10px; border-radius: 6px; font-size: 12px; margin-right: 6px; }
+.etiquette{ padding: 4px 10px; border-radius: 6px; font-size: 12px; margin-right: 6px; color: #202330; }
 .etiquette-facile{ background: var(--etiquette-facile-bg); }
 .etiquette-difficile{ background: var(--etiquette-difficile-bg); }
 
-/* ===============================
-   Section contributions
-   =============================== */
+/* Section contributions */
 .contributions{ padding-bottom: 10px; }
-.ligne-contribution{ display: flex; justify-content: space-between; align-items: center; padding: 10px 18px; gap: 12px; }
-.progression{ display: flex; gap: 6px; }
-.progression i{ font-size: 16px; }
-.remplie{ color: #f6c342; }
-.vide{ color: #e8eefc; }
+.ligne-contribution{ display: flex; justify-content: space-between; align-items: center; padding: 12px 18px; gap: 12px; }
+.progression{ display: flex; gap: 6px; align-items: center; }
+.progression i{ font-size: 18px; }
+.remplie{ color: var(--accent); }
+.vide{ color: #E8EEFC; }
 
-/* ===============================
-   Panneau droit (badge, projets)
-   =============================== */
+/* Panneau droit (badge, projets) */
 .panneau-droit{ display: flex; flex-direction: column; gap: 18px; }
 
 .carte-badge{ display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 16px; }
@@ -125,11 +130,12 @@
 .image-etoiles{ width: 140px; height: auto; object-fit: contain; justify-self: end; }
 
 .pastille-projets{
-  background: #f3f6ff;
-  border: 1px solid var(--bord-carte);
-  border-radius: 20px;
-  padding: 8px 12px;
-  color: #6b7280;
+  background: #F7F9FF;
+  border: 2px solid var(--primaire);           /* Borde bleu marquée */
+  border-radius: 12px;
+  padding: 8px 14px;
+  color: var(--primaire);
+  font-weight: 600;
   width: fit-content;
   display: inline-flex;
   align-items: center;
@@ -138,17 +144,15 @@
 }
 
 .carte-projet{ padding: 14px 16px; }
-.titre-projet{ margin: 6px 0 6px; color: var(--primaire); font-size: 18px; }
-.description-projet{ color: #111827; font-size: 12px; line-height: 1.5; }
-.meta-donnees{ color: #6b7280; font-size: 11px; margin: 8px 0; border-top: 1px solid #e5e7eb; padding-top: 8px; }
+.titre-projet{ margin: 6px 0 6px; color: var(--primaire); font-size: 20px; font-weight: 800; }
+.description-projet{ color: #111827; font-size: 12px; line-height: 1.6; }
+.meta-donnees{ color: var(--texte-secondaire); font-size: 11px; margin: 10px 0; border-top: 1px solid #1F2937; padding-top: 10px; }
 .auteur{ display: flex; align-items: center; gap: 10px; }
-.avatar{ width: 34px; height: 34px; border-radius: 50%; background: #e9eefc; color: var(--primaire); display: grid; place-items: center; }
-.infos .nom{ font-weight: 600; font-size: 13px; }
-.infos .fonction{ font-size: 11px; color: #9ca3af; }
+.avatar{ width: 34px; height: 34px; border-radius: 50%; background: #E9EEFC; color: var(--primaire); display: grid; place-items: center; }
+.infos .nom{ font-weight: 700; font-size: 14px; }
+.infos .fonction{ font-size: 12px; color: var(--primaire); }
 
-/* ===============================
-   Responsif
-   =============================== */
+/* Responsivité */
 /* Empiler le panneau droit sous le contenu principal sur les petits écrans */
 @media (max-width: 1200px){
   .page-principale{ grid-template-columns: 1fr; }
@@ -158,5 +162,5 @@
 /* Le tableau passe en 2 colonnes sur très petits écrans */
 @media (max-width: 520px){
   .tete-tableau, .ligne{ grid-template-columns: 1fr 1fr; }
-  .ligne > div:last-child{ grid-column: 1 / -1; color: #6b7280; font-size: 12px; }
+  .ligne > div:last-child{ grid-column: 1 / -1; color: var(--texte-secondaire); font-size: 12px; }
 }
