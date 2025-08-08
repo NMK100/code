@@ -1,21 +1,16 @@
-/* Container principal */
-.container {
-    display: flex;
-    height: 100vh;
-    background-color: #f8f9fa;
-}
+
 
 /* Sidebar principale */
 .sidebar{
     width: 180px;
     height: calc(100vh - 100px);
-    position: absolute;
+    position: fixed;
     top: 62px;
     background-color: white;
     gap: 80px;
     transition: all 0.3s ease;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    z-index: 0;
 }
 
 /* État replié de la sidebar */

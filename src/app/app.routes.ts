@@ -12,6 +12,7 @@ import { SideBarComponent } from './components/UI/side-bar/side-bar.component';
 import { FooterComponent } from './components/UI/footer/footer.component';
 import { RecherchebarreComponent } from './components/UI/recherchebarre/recherchebarre.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
+import { ContributeurssComponent } from './components/contributeurss/contributeurss.component';
 export const routes: Routes = [
   {
     path: '',
@@ -35,6 +36,7 @@ export const routes: Routes = [
   { path: 'header', component: HeaderComponent },
   { path: 'sidebar', component: SideBarComponent },
   { path: 'footer', component: FooterComponent },
-  {path: 'header-barre', component:RecherchebarreComponent}
+  { path: 'header-barre', component:RecherchebarreComponent},
   { path: 'accueil', component: AccueilComponent },
+  { path: 'dashboard-contributeur', component: ContributeurssComponent },
 ];
